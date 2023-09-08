@@ -10,7 +10,7 @@ return (
 <div>
     <div className='heading'>
 <Typography variant={"h6"}>
-Welcome! Signup here.
+Welcome Back! Sign in here.
 </Typography>
 </div>
 
@@ -19,7 +19,7 @@ Welcome! Signup here.
 
  <TextField fullWidth={true} id="outlined-basic" label="Email" variant="outlined" /> <br /><br />
  <TextField fullWidth={true} id="outlined-basic" label="Password" variant="outlined" /><br /><br />
- <Button size={"large"} variant="contained">Signin</Button>
+ <Button size={"large"} variant="contained">Sign in</Button>
 
  </Card>
  </div>
