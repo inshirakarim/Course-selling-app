@@ -19,7 +19,7 @@ Welcome! Signup here.
 
  <TextField fullWidth={true} id="outlined-basic" label="Email" variant="outlined" /> <br /><br />
  <TextField fullWidth={true} id="outlined-basic" label="Password" variant="outlined" /><br /><br />
- <Button size={"large"} variant="contained">Signup</Button>
+ <Button size={"large"} variant="contained">Signin</Button>
 
  </Card>
  </div>

@@ -1,0 +1,12 @@
+.appbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+ .button {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 2px;
+    margin-left: 2px;
+}
