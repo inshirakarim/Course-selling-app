@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddCourse from './Addcourse';
 import Home from './Home';
 import Courses from './Courses';
+import UpdateCourse from './UpdateCourse';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
                 <Routes>
                     <Route path={"/"} element={<Home />} />
                     <Route path={"/courses"} element={<Courses />} />
+                    <Route path={"/course/:courseId"} element={<UpdateCourse />} />
                     <Route path={"/signin"} element={<Signin />} />
                     <Route path={"/signup"} element={<Signup />} />
                     <Route path={"/addcourse"} element={<AddCourse />} />
