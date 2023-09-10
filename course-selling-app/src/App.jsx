@@ -1,33 +1,35 @@
-
-import './App.css'
-import Signin from './Signin'
-import Signup from './Signup'
-import Appbar from './Appbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddCourse from './Addcourse';
-import Home from './Home';
-import Courses from './Courses';
-import UpdateCourse from './UpdateCourse';
+import Signin from "./Signin.jsx";
+import Signup from "./Signup.jsx";
+import Appbar from "./Appbar.jsx";
+import AddCourse from "./AddCourse.jsx";
+import Courses from "./Courses";
+import { useEffect, useState } from 'react';
+import axios from "axios";
+import UpdateCourse from './UpdateCourse.jsx';
+import './App.css'
+
 
 function App() {
 
-  return (
-  <div>
-    <div className='home'>
-           <Router>
-             <Appbar />
-                <Routes>
-                    <Route path={"/"} element={<Home />} />
-                    <Route path={"/courses"} element={<Courses />} />
-                    <Route path={"/course/:courseId"} element={<UpdateCourse />} />
-                    <Route path={"/signin"} element={<Signin />} />
-                    <Route path={"/signup"} element={<Signup />} />
-                    <Route path={"/addcourse"} element={<AddCourse />} />
-                </Routes>
-            </Router>
-     </div>
-    </div>
-  )
+    return (
+        <div style={{width: "100vw",
+            height: "100vh",
+            backgroundColor: "#eeeeee"}}
+        >
+                <Router>
+                    <Appbar />
+                    <Routes>
+                        <Route path={"/addcourse"} element={<AddCourse />} />
+                        <Route path={"/course/:courseId"} element={<UpdateCourse />} />
+                        <Route path={"/courses"} element={<Courses />} />
+                        <Route path={"/signin"} element={<Signin />} />
+                        <Route path={"/signup"} element={<Signup />} />
+                    </Routes>
+                </Router>
+
+        </div>
+    );
 }
 
-export default App
+export default App;
