@@ -4,7 +4,7 @@ import {Card, Typography} from "@mui/material";
 import {useState} from "react";
 import axios from "axios";
 
-function Signup() {
+function Signin() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
@@ -16,7 +16,7 @@ function Signup() {
                 justifyContent: "center"
             }}>
                 <Typography variant={"h6"}>
-                Welcome to Coursera. Sign up below
+                Welcome to Coursera. Sign in below
                 </Typography>
             </div>
         <div style={{display: "flex", justifyContent: "center"}}>
@@ -45,20 +45,25 @@ function Signup() {
                 <Button
                     size={"large"}
                     variant="contained"
-                    onClick={async() => {
-                        const response = await axios.post("http://localhost:3000/admin/signup", {
+                    onClick={async () => {
+                        const res = await axios.post("http://localhost:3000/admin/login", {
                             username: email,
                             password: password
-                        })
-                        let data = response.data;
+                        }, {
+                            headers: {
+                                "Content-type": "application/json"
+                            }
+                        });
+                        const data = res.data;
+                        
                         localStorage.setItem("token", data.token);
                         window.location = "/"
                     }}
 
-                > Signup</Button>
+                > Signin</Button>
             </Card>
         </div>
     </div>
 }
 
-export default Signup;
+export default Signin;

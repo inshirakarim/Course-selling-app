@@ -3,7 +3,7 @@ import Signin from "./Signin.jsx";
 import Signup from "./Signup.jsx";
 import Appbar from "./Appbar.jsx";
 import AddCourse from "./AddCourse.jsx";
-import Courses from "./Courses";
+import Courses from "./Courses.jsx";
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import UpdateCourse from './UpdateCourse.jsx';
