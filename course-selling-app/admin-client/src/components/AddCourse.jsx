@@ -31,7 +31,7 @@ function AddCourse() {
                     fullWidth={true}
                     label="Description"
                     variant="outlined"
-                />
+                    />
 
                 <TextField
                     style={{marginBottom: 10}}

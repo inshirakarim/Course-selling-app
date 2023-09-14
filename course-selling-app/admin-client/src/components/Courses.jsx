@@ -29,8 +29,7 @@ function Courses() {
 
 export function Course({course}) {
     const navigate = useNavigate();
-
-    return <Card style={{
+     return <Card style={{
         margin: 10,
         width: 300,
         minHeight: 200,

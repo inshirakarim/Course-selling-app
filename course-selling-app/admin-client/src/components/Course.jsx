@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Typography, TextField, Button } from "@mui/material";
 import axios from "axios";
 
-function UpdateCourse() {
+function Course() {
     let { courseId } = useParams();
     const [course, setCourse] = useState(null);
     
@@ -83,7 +83,7 @@ function UpdateCard({course, setCourse}) {
             />
 
             <TextField
-                value={image}
+            value={image}
                 style={{marginBottom: 10}}
                 onChange={(e) => {
                     setImage(e.target.value)
@@ -146,17 +146,16 @@ function CourseCard(props) {
         zIndex: 2
     }}>
         <img src={course.imageLink} style={{width: 350}} ></img>
-        <div style={{marginLeft: 10}}>
-            <Typography variant="h5">{course.title}</Typography>
+        <div style={{marginLeft: 10}}></div>
+        <Typography variant="h5">{course.title}</Typography>
             <Typography variant="subtitle2" style={{color: "gray"}}>
                 Price
             </Typography>
             <Typography variant="subtitle1">
                 <b>Rs {course.price} </b>
             </Typography>
-        </div>
     </Card>
     </div>
 }
 
-export default UpdateCourse;
+export default Course;
