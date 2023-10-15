@@ -4,11 +4,14 @@ import {Card, Typography} from "@mui/material";
 import {useState} from "react";
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {useSetRecoilState} from "recoil";
+import {userState} from "../store/atoms/user.js";
 
-function Signin({setUserEmail}) {
-    const navigate = useNavigate()
+function Signin() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const navigate = useNavigate()
+    const setUser = useSetRecoilState(userState);
 
     return <div>
             <div style={{
@@ -18,7 +21,7 @@ function Signin({setUserEmail}) {
                 justifyContent: "center"
             }}>
                 <Typography variant={"h6"}>
-                Welcome to Coursera. Sign in below
+                Welcome to Coursera. Sign up below
                 </Typography>
             </div>
         <div style={{display: "flex", justifyContent: "center"}}>
@@ -48,7 +51,7 @@ function Signin({setUserEmail}) {
                     size={"large"}
                     variant="contained"
                     onClick={async () => {
-                        const res = await axios.post("http://localhost:3000/admin/login", {
+                        const res = await axios.post(`${BASE_URL}/admin/login`, {
                             username: email,
                             password: password
                         }, {
@@ -57,9 +60,13 @@ function Signin({setUserEmail}) {
                             }
                         });
                         const data = res.data;
-                        
+
                         localStorage.setItem("token", data.token);
-                        setUserEmail(email);
+                        // window.location = "/"
+                        setUser({
+                            userEmail: email,
+                            isLoading: false
+                        })
                         navigate("/courses")
                     }}
 

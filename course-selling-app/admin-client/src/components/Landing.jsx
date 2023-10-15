@@ -1,10 +1,14 @@
 import {Grid, Typography} from "@mui/material";
 import Button from "@mui/material/Button";
 import {useNavigate} from "react-router-dom";
+import {useRecoilValue} from "recoil";
+import { userEmailState } from "../store/selectors/userEmail"
+import {isUserLoading} from "../store/selectors/isUserLoading.js";
 
-const Landing = ({userEmail}) => {
+const Landing = () => {
     const navigate = useNavigate()
-
+    const userEmail = useRecoilValue(userEmailState);
+    const userLoading = useRecoilValue(isUserLoading);
     return <div>
         <Grid container style={{padding: "5vw"}}>
             <Grid item xs={12} md={6} lg={6}>
@@ -15,8 +19,7 @@ const Landing = ({userEmail}) => {
                     <Typography variant={"h5"}>
                         A place to learn, earn and grow
                     </Typography>
-                    {!userEmail && 
-                        <div style={{display: "flex", marginTop: 20}}>
+                    {!userLoading && !userEmail && <div style={{display: "flex", marginTop: 20}}>
                         <div style={{marginRight: 10}}>
                             <Button
                                 size={"large"}
@@ -45,5 +48,6 @@ const Landing = ({userEmail}) => {
             </Grid>
         </Grid>
     </div>
-} 
+}
+
 export default Landing;
