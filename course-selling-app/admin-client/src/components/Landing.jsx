@@ -44,7 +44,7 @@ const Landing = () => {
                 </div>
             </Grid>
             <Grid item xs={12} md={6} lg={6}  style={{marginTop: 20}}>
-                <img src={"/class.jpeg"} width={"100%"} />
+                <img src={"https://www.codeimmersives.com/wp-content/uploads/2021/04/term1.png"} width={"100%"} />
             </Grid>
         </Grid>
     </div>
