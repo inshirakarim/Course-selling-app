@@ -22,7 +22,7 @@ function Courses() {
 
     return <div style={{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
         {courses.map(course => {
-            return <Course course={course} />}
+            return <Course key={course.id} course={course} />}
         )}
     </div>
 }

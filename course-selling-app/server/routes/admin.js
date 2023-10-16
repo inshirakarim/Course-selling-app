@@ -37,7 +37,7 @@ router.post('/signup', (req, res) => {
   });
   
   router.post('/login', async (req, res) => {
-    const { username, password } = req.headers;
+    const { username, password } = req.body;
     const admin = await Admin.findOne({ username, password });
     if (admin) {
       const token = jwt.sign({ username, role: 'admin' }, SECRET, { expiresIn: '1h' });
@@ -50,7 +50,7 @@ router.post('/signup', (req, res) => {
   router.post('/courses', authenticateJwt, async (req, res) => {
     const course = new Course(req.body);
     await course.save();
-    res.json({ message: 'Course created successfully', courseId: course.id });
+    res.json({ message: 'Course created successfully', courseId: course._id });
   });
   
   router.put('/courses/:courseId', authenticateJwt, async (req, res) => {
@@ -72,5 +72,6 @@ router.post('/signup', (req, res) => {
     const course = await Course.findById(courseId);
     res.json({ course });
   });
+
 
   module.exports = router
